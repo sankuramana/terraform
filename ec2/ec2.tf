@@ -9,10 +9,9 @@ resource "aws_instance" "terraform" {
     Terraform= "true"
   }
 }
-# one resource shoul be in one block even that can be simple resourec
-resource "aws_security_group" "allow_everythig" { #name of resourece== allw_everything #terraform-reffrence
-  # ... other configuration ...
-  name = "allow-evrything" ##???? #security groupname
+
+resource "aws_security_group" "allow_everythig" {
+  name = "allow-evrything" 
   ingress {
     from_port       = 0 #from port 0 to o means all ports
     to_port         = 0
@@ -24,11 +23,11 @@ resource "aws_security_group" "allow_everythig" { #name of resourece== allw_ever
     from_port       = 0
     to_port         = 0
     protocol        = "-1"
-    cidr_blocks =["0.0.0.0/0"] #ipvs
-    
+    cidr_blocks =["0.0.0.0/0"] 
+     
     
   }
-  tags = {  #this name is for user display
+  tags = {   #meta data
     Name= "allow-everythig"
 
   }
